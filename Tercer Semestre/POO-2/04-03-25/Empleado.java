@@ -1,6 +1,7 @@
 import java.util.Date;
 
 public class Empleado{
+
     private int id;
     private String nombre;
     private String telefono;
@@ -8,7 +9,7 @@ public class Empleado{
     private String correo;
     private Date fechaNacimiento;
     private int horasTrabajadas = 0;
-    Rol rol;
+    private Rol rol;
 
     public Empleado(){}
 
@@ -20,6 +21,7 @@ public class Empleado{
         this.correo = correo;
         this.fechaNacimiento = fechaNacimiento;
         this.rol = rol;
+        rol.agregarEmpleado(this);
     }
 
     public int getId(){ return id; }
@@ -36,6 +38,9 @@ public class Empleado{
 
     public String getCorreo(){ return correo; }
     public void setCorreo(String correo){ this.correo = correo; }
+
+    public Date getFechaNacimiento(){ return fechaNacimiento; }
+    public void setFechaNacimiento(Date fechaNacimiento){ this.fechaNacimiento = fechaNacimiento; }
 
     public void trabajar(){
         horasTrabajadas += 8;
