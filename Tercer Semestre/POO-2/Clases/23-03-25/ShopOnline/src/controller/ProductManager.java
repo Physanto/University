@@ -3,10 +3,6 @@ package controller;
 import model.Product;
 import java.util.ArrayList;
 
-/**
- *
- * @author initmanfig
- */
 public class ProductManager {
     private ArrayList<Product> listProducts;
     
@@ -29,9 +25,7 @@ public class ProductManager {
     @Override
     public String toString() {
         return "ProductManager{" + "listProducts=" + listProducts + '}';
-    }
-    
-    
+    } 
 
     public boolean addProduct(Product product){
         return listProducts.add(product);
@@ -67,4 +61,30 @@ public class ProductManager {
         }
         return false;
     }
+
+    public boolean saleProduct(String idProduct, int cant){
+        Product product = searchProduct(idProduct);
+        
+        if(product != null){
+            product.setStock(product.getStock() - cant);
+            return true;
+        }
+        return false;
+    }
+    
+    public Object[][] list(){
+        Object[][] products = new Object[listProducts.size()][5];
+        int i = 0;
+        for(Product p : listProducts){
+            
+            products[i][0] = p.getid();
+            products[i][1] = p.getName();
+            products[i][2] = p.getPrice();
+            products[i][3] = p.getStock();
+            products[i][4] = p.getCategory().getName();
+            i++;
+        }
+        return products;
+    }
+    
 }

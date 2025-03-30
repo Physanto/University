@@ -4,10 +4,6 @@
  */
 package model;
 
-/**
- *
- * @author initmanfig
- */
 public class Product {
     private String id;
     private String name;
