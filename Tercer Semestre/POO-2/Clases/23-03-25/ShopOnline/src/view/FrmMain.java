@@ -427,7 +427,6 @@ public class FrmMain extends javax.swing.JFrame {
         int index = tblProducts.getSelectedRow();
         productManager.saleProduct(productManager.getListProducts().get(index).getid(), Integer.parseInt(txtCant.getText()));
         JOptionPane.showMessageDialog(null, "Elemento seleccionado " + productManager.getListProducts().get(index));
-        :
     }//GEN-LAST:event_btnSaleProductActionPerformed
 
     
