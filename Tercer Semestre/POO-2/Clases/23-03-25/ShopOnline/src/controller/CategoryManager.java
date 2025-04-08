@@ -20,6 +20,14 @@ public class CategoryManager {
         this.listCategorys = listCategorys;
     }
 
+    public ArrayList<Category> getListCategorys() {
+        return listCategorys;
+    }
+
+    public void setListCategorys(ArrayList<Category> listCategorys) {
+        this.listCategorys = listCategorys;
+    }
+
     public boolean addCategory(Category category){
         return listCategorys.add(category);
     }

@@ -16,11 +16,13 @@ public class FrmCategory extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmCategory.class.getName());
 
     private CategoryManager categoryManager;
+    private FrmMain frmMain;
 
-    public FrmCategory() {
+    public FrmCategory(CategoryManager categoryManager, FrmMain frmMain) {
         initComponents();
         btnUpdateCategory.setVisible(false);
-        categoryManager = new CategoryManager();
+        this.categoryManager = new CategoryManager();
+        this.frmMain = frmMain;
     }
 
     @SuppressWarnings("unchecked")
@@ -40,7 +42,13 @@ public class FrmCategory extends javax.swing.JFrame {
         tblCategory = new javax.swing.JTable();
         btnUpdateCategory = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("FrmCategory");
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         lblTitle.setText("GESTION DE CATEGORIAS");
@@ -81,7 +89,6 @@ public class FrmCategory extends javax.swing.JFrame {
             }
         });
 
-        btnSearch.setBackground(new java.awt.Color(255, 255, 255));
         btnSearch.setIcon(new javax.swing.ImageIcon(getClass().getResource("/view/lupa.png"))); // NOI18N
         btnSearch.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -165,8 +172,10 @@ public class FrmCategory extends javax.swing.JFrame {
                             .addComponent(txtName, javax.swing.GroupLayout.DEFAULT_SIZE, 103, Short.MAX_VALUE))
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblTitle))))
+                            .addComponent(lblTitle)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(57, 57, 57)))))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -199,7 +208,6 @@ public class FrmCategory extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtCodeFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCodeFocusGained
-
         txtCode.setText("");
         txtCode.setForeground(Color.black);
     }//GEN-LAST:event_txtCodeFocusGained
@@ -236,10 +244,6 @@ public class FrmCategory extends javax.swing.JFrame {
     }//GEN-LAST:event_txtDescriptionFocusLost
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
-        //if(!onlyNumbers(txtCode.getText())){
-        //JOptionPane.showMessageDialog(null, "Para buscar un producto debes ingresar solo un codigo valido");
-        //return;
-        //}
 
         if (txtCode.getText().equals("Codigo")) {
             JOptionPane.showMessageDialog(null, "Para buscar un producto debes ingresar solo un codigo valido");
@@ -362,15 +366,12 @@ public class FrmCategory extends javax.swing.JFrame {
         txtCode.setEnabled(true);
     }//GEN-LAST:event_btnUpdateCategoryActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        frmMain.setVisible(true);
+        frmMain.addItems(categoryManager);
+    }//GEN-LAST:event_formWindowClosed
+
+    /*public static void main(String args[]) {
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
@@ -382,10 +383,10 @@ public class FrmCategory extends javax.swing.JFrame {
             logger.log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(() -> new FrmCategory().setVisible(true));
+    
+        java.awt.EventQueue.invokeLater(() -> new FrmCategory(null).setVisible(true));
     }
+    */
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAdd;
