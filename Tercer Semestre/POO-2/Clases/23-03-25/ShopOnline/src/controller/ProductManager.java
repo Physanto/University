@@ -45,8 +45,7 @@ public class ProductManager {
         Product product = searchProduct(id);
 
         if(product != null){
-            listProducts.remove(product);
-            return true;
+            return listProducts.remove(product);
         }
         return false;
     }

@@ -1,0 +1,40 @@
+public class SearchBinary{
+    
+    public static void main(String[] args){
+
+        int[] array = {1,2,3,4,5,6,7,8,9,10};
+
+        if(searchBinary(array, 1)){
+            System.out.println("Encontrado");
+        }
+        else{
+            System.out.println("No encontrado");
+        }
+    }
+
+    public static boolean searchBinary(int[] array, int value){ 
+        int size = array.length;
+        int iRight = size - 1;
+        int iLeft = 0;
+
+        do{  
+            int iMedium = (iLeft + iRight) / 2;
+
+            if(iLeft > iRight){
+                return false;
+            }
+
+            if(array[iMedium] == value){
+                return true;
+            }
+
+            if(array[iMedium] < value){
+                iLeft = iMedium + 1;
+            }
+            else{
+                iRight = iMedium - 1;
+            } 
+        }
+        while(true);
+    }
+}

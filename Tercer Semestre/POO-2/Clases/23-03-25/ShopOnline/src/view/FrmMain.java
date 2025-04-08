@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package view;
 
 import controller.ProductManager;
@@ -56,8 +52,7 @@ public class FrmMain extends javax.swing.JFrame {
         lblImage = new javax.swing.JLabel();
         txtCodeUpdate = new javax.swing.JTextField();
         btnUpdateProduct = new javax.swing.JButton();
-        btnShowData = new javax.swing.JButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
+        scrollPaneTable = new javax.swing.JScrollPane();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblProducts = new javax.swing.JTable();
         btnSale = new javax.swing.JButton();
@@ -173,13 +168,6 @@ public class FrmMain extends javax.swing.JFrame {
             }
         });
 
-        btnShowData.setText("Mostrar Datos");
-        btnShowData.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnShowDataActionPerformed(evt);
-            }
-        });
-
         tblProducts.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -193,7 +181,7 @@ public class FrmMain extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(tblProducts);
 
-        jScrollPane2.setViewportView(jScrollPane1);
+        scrollPaneTable.setViewportView(jScrollPane1);
 
         btnSale.setText("Vender");
         btnSale.addActionListener(new java.awt.event.ActionListener() {
@@ -239,31 +227,19 @@ public class FrmMain extends javax.swing.JFrame {
                 .addGap(66, 66, 66)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(scrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 591, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(btnSaleProduct))
                         .addGap(118, 118, 118))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(lblTitle)
                         .addGap(261, 261, 261))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 4, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(txtStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
-                                    .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtCode, javax.swing.GroupLayout.Alignment.LEADING))
-                                .addGap(38, 38, 38)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addGroup(layout.createSequentialGroup()
-                                        .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtCodeUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addComponent(btnUpdateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
@@ -275,12 +251,27 @@ public class FrmMain extends javax.swing.JFrame {
                                 .addComponent(btnAdd)
                                 .addGap(18, 18, 18)
                                 .addComponent(btnClean)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lblImage))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(19, 19, 19)
+                                .addComponent(btnSale)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtStock, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 116, Short.MAX_VALUE)
+                            .addComponent(txtPrice, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtName, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtCode, javax.swing.GroupLayout.Alignment.LEADING))
+                        .addGap(38, 38, 38)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnShowData)
-                            .addComponent(lblImage))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnSale)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtCodeUpdate, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(btnUpdateProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
@@ -315,7 +306,6 @@ public class FrmMain extends javax.swing.JFrame {
                             .addComponent(btnDelete)
                             .addComponent(btnAdd)
                             .addComponent(btnClean)
-                            .addComponent(btnShowData)
                             .addComponent(btnSale)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
@@ -324,7 +314,7 @@ public class FrmMain extends javax.swing.JFrame {
                         .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(22, 22, 22)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(scrollPaneTable, javax.swing.GroupLayout.PREFERRED_SIZE, 144, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(txtCant, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
@@ -400,6 +390,7 @@ public class FrmMain extends javax.swing.JFrame {
         
         if(productManager.deleteProduct(txtCode.getText())){
             JOptionPane.showMessageDialog(null, "Producto eliminado correctamente", "Informacion", JOptionPane.OK_OPTION);
+            showDataTable();
         }
         else{
             JOptionPane.showMessageDialog(null, "Producto no eliminado", "Error", JOptionPane.ERROR_MESSAGE);
@@ -447,13 +438,13 @@ public class FrmMain extends javax.swing.JFrame {
         txtCodeUpdate.setText("");
         txtCodeUpdate.setForeground(Color.black);
     }//GEN-LAST:event_txtCodeUpdateFocusGained
-
-    private void btnShowDataActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShowDataActionPerformed
+    
+    private void showDataTable(){
         String[] columns = {"Id", "Nombre", "Precio", "Stock", "Categoria"};
         DefaultTableModel manager = new DefaultTableModel(productManager.list(), columns);
         tblProducts.setModel(manager);
-    }//GEN-LAST:event_btnShowDataActionPerformed
-
+    }
+    
     private void btnSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleActionPerformed
         JOptionPane.showMessageDialog(null, "Selecciona un producto de la tabla e ingresa la cantidad que vas a vender");
         btnSaleProduct.setVisible(true);
@@ -471,6 +462,7 @@ public class FrmMain extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Elemento seleccionado " + productManager.getListProducts().get(index));
         tblProducts.getParent().revalidate();
         tblProducts.getParent().repaint();
+        showDataTable();
     }//GEN-LAST:event_btnSaleProductActionPerformed
 
     private void txtCantFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantFocusGained
@@ -566,7 +558,6 @@ public class FrmMain extends javax.swing.JFrame {
                 Integer.parseInt(txtStock.getText()), (Category)cbxCategory.getSelectedItem()));
         
         JOptionPane.showMessageDialog(null, "Producto agregado correctamente", "Informacion", JOptionPane.OK_OPTION);
-
         txtCode.setText("Codigo");
         txtCode.setForeground(Color.gray);
         txtName.setText("Nombre");
@@ -575,6 +566,7 @@ public class FrmMain extends javax.swing.JFrame {
         txtPrice.setForeground(Color.gray);
         txtStock.setText("Stock");
         txtStock.setForeground(Color.gray);   
+        showDataTable();
     }
     
     private boolean onlyNumbers(String text){
@@ -620,15 +612,14 @@ public class FrmMain extends javax.swing.JFrame {
     private javax.swing.JButton btnSale;
     private javax.swing.JButton btnSaleProduct;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnShowData;
     private javax.swing.JButton btnUpdate;
     private javax.swing.JButton btnUpdateProduct;
     private javax.swing.JComboBox<Category> cbxCategory;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblTitle;
+    private javax.swing.JScrollPane scrollPaneTable;
     private javax.swing.JTable tblProducts;
     private javax.swing.JTextField txtCant;
     private javax.swing.JTextField txtCode;
