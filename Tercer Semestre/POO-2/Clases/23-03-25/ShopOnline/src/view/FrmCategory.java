@@ -173,9 +173,7 @@ public class FrmCategory extends javax.swing.JFrame {
                         .addGap(29, 29, 29)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblTitle)
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(57, 57, 57)))))
+                            .addComponent(btnSearch, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -238,7 +236,7 @@ public class FrmCategory extends javax.swing.JFrame {
 
     private void txtDescriptionFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtDescriptionFocusLost
         if (txtDescription.getText().isEmpty()) {
-            txtDescription.setText("Precio");
+            txtDescription.setText("Descripcion");
             txtDescription.setForeground(Color.gray);
         }
     }//GEN-LAST:event_txtDescriptionFocusLost

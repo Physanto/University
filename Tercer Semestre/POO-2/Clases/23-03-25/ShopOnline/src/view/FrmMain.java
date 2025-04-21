@@ -596,9 +596,7 @@ public class FrmMain extends javax.swing.JFrame {
         }
         return true;
     }
-    /**
-     * @param args the command line arguments
-     */
+    
     public static void main(String args[]) {
 
         try {
@@ -619,11 +617,6 @@ public class FrmMain extends javax.swing.JFrame {
         for(Category category : categoryManager.getListCategorys()){
             cbxCategory.addItem(category);
         }
-        //cbxCategory.addItem(new Category("001","Aseo","Productos de aseo"));
-        //cbxCategory.addItem(new Category("002","Tecnologia","Productos tecnolgicos"));
-        //cbxCategory.addItem(new Category("003","Ropa","Productos para vestir"));
-        //cbxCategory.addItem(new Category("004","Juegos","Productos de videojuegos"));
-        //cbxCategory.addItem(new Category("005","Alcohol","Productos para embriagarse"));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
