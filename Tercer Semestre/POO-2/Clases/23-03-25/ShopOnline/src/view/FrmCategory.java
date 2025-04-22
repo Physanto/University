@@ -5,7 +5,6 @@ import java.awt.Color;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import model.Category;
-import model.Product;
 
 /**
  *
@@ -21,7 +20,7 @@ public class FrmCategory extends javax.swing.JFrame {
     public FrmCategory(CategoryManager categoryManager, FrmMain frmMain) {
         initComponents();
         btnUpdateCategory.setVisible(false);
-        this.categoryManager = new CategoryManager();
+        this.categoryManager = categoryManager;
         this.frmMain = frmMain;
     }
 
@@ -277,7 +276,7 @@ public class FrmCategory extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Ingresa la informacion de la categoria actualizar", "Informacion", JOptionPane.OK_OPTION);
             txtName.setText("Nombre");
             txtName.setForeground(Color.gray);
-            txtDescription.setText("Precio");
+            txtDescription.setText("Descripcion");
             txtDescription.setForeground(Color.gray);
             btnUpdateCategory.setVisible(true);
             btnUpdate.setVisible(false);
@@ -326,7 +325,7 @@ public class FrmCategory extends javax.swing.JFrame {
     private boolean validateData() {
         return (txtCode.getText().isEmpty() || txtCode.getText().equals("Codigo"))
                 || (txtName.getText().isEmpty() || txtName.getText().equals("Nombre"))
-                || (txtDescription.getText().isEmpty() || txtDescription.getText().equals("Precio"));
+                || (txtDescription.getText().isEmpty() || txtDescription.getText().equals("Descripcion"));
     }
 
     private void btnCleanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCleanActionPerformed
@@ -338,7 +337,7 @@ public class FrmCategory extends javax.swing.JFrame {
         txtCode.setForeground(Color.gray);
         txtName.setText("Nombre");
         txtName.setForeground(Color.gray);
-        txtDescription.setText("Precio");
+        txtDescription.setText("Descripcion");
         txtDescription.setForeground(Color.gray);
     }
     
@@ -358,7 +357,7 @@ public class FrmCategory extends javax.swing.JFrame {
         txtCode.setForeground(Color.gray);
         txtName.setText("Nombre");
         txtName.setForeground(Color.gray);
-        txtDescription.setText("Precio");
+        txtDescription.setText("Descripcion");
         txtDescription.setForeground(Color.gray);
         showDataTable();
         txtCode.setEnabled(true);

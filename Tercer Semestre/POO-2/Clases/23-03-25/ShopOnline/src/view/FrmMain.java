@@ -3,7 +3,6 @@ package view;
 import controller.CategoryManager;
 import controller.ProductManager;
 import java.awt.Color;
-import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 
@@ -19,14 +18,12 @@ public class FrmMain extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmMain.class.getName());
     private ProductManager productManager;
     private CategoryManager categoryManager;
-    ArrayList<Category> listCategorys;
 
     
     public FrmMain() {
         initComponents();
         txtCodeUpdate.setVisible(false);
         btnUpdateProduct.setVisible(false);
-        btnSaleProduct.setVisible(false);
         categoryManager = new CategoryManager();
         productManager = new ProductManager();
         addItems(categoryManager);
@@ -454,12 +451,13 @@ public class FrmMain extends javax.swing.JFrame {
     }
     
     private void btnSaleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleActionPerformed
-        JOptionPane.showMessageDialog(null, "Selecciona un producto de la tabla e ingresa la cantidad que vas a vender");
-        btnSaleProduct.setVisible(true);
+        /*JOptionPane.showMessageDialog(null, "Selecciona un producto de la tabla e ingresa la cantidad que vas a vender");
+        btnSaleProduct.setVisible(true); */
     }//GEN-LAST:event_btnSaleActionPerformed
 
     private void btnSaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleProductActionPerformed
         
+        /*
         if(tblProducts.getSelectedRow() == -1 ||
                 txtCant.getText().equals("Cantidad")){
             JOptionPane.showMessageDialog(null, "Selecciona un producto de la tabla e ingresa la cantidad que vas a vender");
@@ -478,7 +476,11 @@ public class FrmMain extends javax.swing.JFrame {
         JOptionPane.showMessageDialog(null, "Elemento seleccionado " + productManager.getListProducts().get(index));
         tblProducts.getParent().revalidate();
         tblProducts.getParent().repaint();
-        showDataTable();
+        showDataTable(); */
+        
+        this.setVisible(false);
+        FrmSale frmSale = new FrmSale(productManager, categoryManager,this);
+        frmSale.setVisible(true);
     }//GEN-LAST:event_btnSaleProductActionPerformed
 
     private void txtCantFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_txtCantFocusGained
