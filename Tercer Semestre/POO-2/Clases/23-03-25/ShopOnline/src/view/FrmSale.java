@@ -53,6 +53,8 @@ public class FrmSale extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnDeleteProduct = new javax.swing.JButton();
+        txtTotalBuy = new javax.swing.JTextField();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -153,6 +155,8 @@ public class FrmSale extends javax.swing.JFrame {
             }
         });
 
+        jLabel1.setText("Total de la compra");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -189,14 +193,17 @@ public class FrmSale extends javax.swing.JFrame {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(180, 180, 180)
+                        .addComponent(lblListProducts))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(txtTotalBuy, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(btnAddPay, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnDeleteProduct)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(180, 180, 180)
-                        .addComponent(lblListProducts)))
+                            .addComponent(btnDeleteProduct)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addGap(56, 56, 56))
         );
         layout.setVerticalGroup(
@@ -228,7 +235,11 @@ public class FrmSale extends javax.swing.JFrame {
                         .addComponent(btnAddPay, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
                         .addComponent(btnDeleteProduct)))
-                .addGap(126, 126, 126))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTotalBuy, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(97, 97, 97))
         );
 
         pack();
@@ -285,6 +296,7 @@ public class FrmSale extends javax.swing.JFrame {
             return;
         }
         showDataTable(new Product(txtCode.getText(), txtName.getText(), Double.parseDouble(txtPrice.getText()), Integer.parseInt(txtStock.getText()), (Category)cbxCategory.getSelectedItem()));
+        txtTotalBuy.setText(String.valueOf(calculateTotalBought(dataTable())));
     }//GEN-LAST:event_btnAddTableActionPerformed
 
     private void btnSearchActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSearchActionPerformed
@@ -326,7 +338,7 @@ public class FrmSale extends javax.swing.JFrame {
             String code = tblListProducts.getValueAt(i, 0).toString();
             int cantSale = Integer.parseInt(tblListProducts.getValueAt(i, 5).toString());
 
-            // Buscamos el producto real en ProductManager
+            
             Product productReal = productManager.searchProduct(code);
 
             if (productReal != null) {
@@ -404,7 +416,7 @@ public class FrmSale extends javax.swing.JFrame {
         ProductSale productSale = new ProductSale(product, Integer.parseInt(txtCant.getText()));
         listProducts.add(productSale);
 
-        String[] columnNames = {"Codigo", "Nombre", "Precio", "Stock", "Categoria", "Cantidad", "Total"};
+        String[] columnNames = {"Codigo", "Nombre", "Precio", "Stock", "Categoria", "Cantidad", "Subtotal"};
         DefaultTableModel defaultTableModel = new DefaultTableModel(dataTable(), columnNames);
         tblListProducts.setModel(defaultTableModel);
     }
@@ -426,6 +438,14 @@ public class FrmSale extends javax.swing.JFrame {
         }
         return data;
     }
+    
+    private double calculateTotalBought(Object[][] data){
+        double total = 0;
+        for(int i = 0; i < data.length; i++) {
+            total += Double.parseDouble(String.valueOf(data[i][6]));
+        }
+        return total;
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAddPay;
@@ -434,6 +454,7 @@ public class FrmSale extends javax.swing.JFrame {
     private javax.swing.JButton btnSearch;
     private javax.swing.JComboBox<Category> cbxCategory;
     private javax.swing.JButton jButton1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblListProducts;
     private javax.swing.JLabel lblTitle;
@@ -443,5 +464,6 @@ public class FrmSale extends javax.swing.JFrame {
     private javax.swing.JTextField txtName;
     private javax.swing.JTextField txtPrice;
     private javax.swing.JTextField txtStock;
+    private javax.swing.JTextField txtTotalBuy;
     // End of variables declaration//GEN-END:variables
 }

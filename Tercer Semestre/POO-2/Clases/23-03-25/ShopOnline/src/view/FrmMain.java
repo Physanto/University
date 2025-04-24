@@ -18,7 +18,6 @@ public class FrmMain extends javax.swing.JFrame {
     private static final java.util.logging.Logger logger = java.util.logging.Logger.getLogger(FrmMain.class.getName());
     private ProductManager productManager;
     private CategoryManager categoryManager;
-
     
     public FrmMain() {
         initComponents();
@@ -456,7 +455,7 @@ public class FrmMain extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaleActionPerformed
 
     private void btnSaleProductActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaleProductActionPerformed
-        
+
         /*
         if(tblProducts.getSelectedRow() == -1 ||
                 txtCant.getText().equals("Cantidad")){
@@ -479,7 +478,7 @@ public class FrmMain extends javax.swing.JFrame {
         showDataTable(); */
         
         this.setVisible(false);
-        FrmSale frmSale = new FrmSale(productManager, categoryManager,this);
+        FrmSale frmSale = new FrmSale(productManager, categoryManager, this);
         frmSale.setVisible(true);
     }//GEN-LAST:event_btnSaleProductActionPerformed
 
