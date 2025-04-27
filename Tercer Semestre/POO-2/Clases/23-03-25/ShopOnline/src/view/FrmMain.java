@@ -394,7 +394,7 @@ public class FrmMain extends javax.swing.JFrame {
         
         if(productManager.deleteProduct(txtCode.getText())){
             JOptionPane.showMessageDialog(null, "Producto eliminado correctamente", "Informacion", JOptionPane.OK_OPTION);
-            showDataTable();
+            showDataTable(productManager);
         }
         else{
             JOptionPane.showMessageDialog(null, "Producto no eliminado", "Error", JOptionPane.ERROR_MESSAGE);
@@ -443,7 +443,7 @@ public class FrmMain extends javax.swing.JFrame {
         txtCodeUpdate.setForeground(Color.black);
     }//GEN-LAST:event_txtCodeUpdateFocusGained
     
-    private void showDataTable(){
+    public void showDataTable(ProductManager productManager){
         String[] columns = {"Id", "Nombre", "Precio", "Stock", "Categoria"};
         DefaultTableModel manager = new DefaultTableModel(productManager.list(), columns);
         tblProducts.setModel(manager);
@@ -585,7 +585,7 @@ public class FrmMain extends javax.swing.JFrame {
         txtPrice.setForeground(Color.gray);
         txtStock.setText("Stock");
         txtStock.setForeground(Color.gray);   
-        showDataTable();
+        showDataTable(productManager);
     }
     
     private boolean onlyNumbers(String text){
@@ -615,6 +615,7 @@ public class FrmMain extends javax.swing.JFrame {
     }
     
     public void addItems(CategoryManager categoryManager){
+        cbxCategory.removeAllItems();
         for(Category category : categoryManager.getListCategorys()){
             cbxCategory.addItem(category);
         }

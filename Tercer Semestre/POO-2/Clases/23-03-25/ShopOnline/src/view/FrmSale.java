@@ -56,7 +56,12 @@ public class FrmSale extends javax.swing.JFrame {
         txtTotalBuy = new javax.swing.JTextField();
         jLabel1 = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowClosed(java.awt.event.WindowEvent evt) {
+                formWindowClosed(evt);
+            }
+        });
 
         lblTitle.setFont(new java.awt.Font("Verdana", 1, 24)); // NOI18N
         lblTitle.setText("VENTA DE PRODUCTOS");
@@ -378,6 +383,11 @@ public class FrmSale extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Por favor seleccione un producto para eliminar.");
         }
     }//GEN-LAST:event_btnDeleteProductActionPerformed
+
+    private void formWindowClosed(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowClosed
+        frmMain.setVisible(true);
+        frmMain.showDataTable(productManager);
+    }//GEN-LAST:event_formWindowClosed
     
     private ProductSale searchProductSale(String code){
         for(ProductSale productSales : listProducts){
