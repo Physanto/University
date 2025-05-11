@@ -6,13 +6,13 @@ package model;
  * @author initmanfig
  */
 public class Coffe {
-    private int code;
+    private String code;
     private String mark;
     private String type;
     private int cant;
     private double price;
 
-    public Coffe(int code, String mark, String type, int cant, double price) {
+    public Coffe(String code, String mark, String type, int cant, double price) {
         this.code = code;
         this.mark = mark;
         this.type = type;
@@ -20,11 +20,11 @@ public class Coffe {
         this.price = price;
     }
 
-    public int getcode() {
+    public String getcode() {
         return code;
     }
 
-    public void setcode(int code) {
+    public void setcode(String code) {
         this.code = code;
     }
 

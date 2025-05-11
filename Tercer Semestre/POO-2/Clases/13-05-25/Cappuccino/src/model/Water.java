@@ -6,23 +6,23 @@ package model;
  * @author initmanfig
  */
 public class Water {
-    private int code;
+    private String code;
     private String type;
     private int cant;
     private double price;
 
-    public Water(int code, String type, int cant, double price) {
+    public Water(String code, String type, int cant, double price) {
         this.code = code;
         this.type = type;
         this.cant = cant;
         this.price = price;
     }
 
-    public int getcode() {
+    public String getcode() {
         return code;
     }
 
-    public void setcode(int code) {
+    public void setcode(String code) {
         this.code = code;
     }
 

@@ -9,15 +9,17 @@ import java.util.ArrayList;
 
 public class Cappuccino {
 
-    private int code;
+    private String code;
     private String name;
     private double price;
     private String presentation;
     private ArrayList<Water> waters;
     private ArrayList<Coffe> coffes;
     private ArrayList<Topping> toppings;
+	private int rowCount = 0;
+	private Object[][] data; 
 
-    public Cappuccino(int code, String name, double price, String presentation, ArrayList<Water> waters, ArrayList<Coffe> coffes) {
+    public Cappuccino(String code, String name, String presentation, double price, ArrayList<Water> waters, ArrayList<Coffe> coffes) {
         this.code = code;
         this.name = name;
         this.price = price;
@@ -27,11 +29,11 @@ public class Cappuccino {
         toppings = new ArrayList<>();
     }
 
-    public int getcode() {
+    public String getcode() {
         return code;
     }
 
-    public void setcode(int code) {
+    public void setcode(String code) {
         this.code = code;
     }
 
@@ -83,7 +85,7 @@ public class Cappuccino {
         this.toppings = topping;
     }
 
-    public double calcularprice(){
+    public double calculateprice(){
         return price + getTotalwater() + getTotalcoffe() + getTotalToppings();
     }
 
@@ -112,7 +114,7 @@ public class Cappuccino {
         return price;
     }
 
-    public void mostrarInfo(){
+    public void showInfo(){
         System.out.println(" Este es el capuchino " + code + " " + name + " " + price + " " + presentation +
                 " con estos componentes ");
 
@@ -127,10 +129,68 @@ public class Cappuccino {
             System.out.println(t.toString());
         }
 
-        System.out.println(" su price total es de " + calcularprice());
+        System.out.println(" su price total es de " + calculateprice());
     }
 
-    public boolean agregarToppings(Topping topping){
+    public boolean addTopping(Topping topping){
         return toppings.add(topping);
     }
+
+	public boolean addWater(Water water){
+		return waters.add(water);
+	}
+
+	public boolean addCoffe(Coffe coffe){
+		return coffes.add(coffe);
+	}
+
+	public Object[][] dataComplete(){
+		data = new Object[waters.size() + coffes.size() + toppings.size() + 1][5];
+		dataWaters();
+		dataCoffe();
+		dataTopping();
+		dataCappuccino();
+		return data;
+	}
+	
+	public void dataWaters(){	
+		for (int i = 0; i < waters.size(); i++) {
+			data[rowCount][0] = "Agua";	
+			data[rowCount][1] = waters.get(i).gettype();
+			data[rowCount][2] = waters.get(i).getcant();
+			data[rowCount][3] = waters.get(i).getprice();
+			data[rowCount][4] = waters.get(i).getcant() * waters.get(i).getprice();
+			rowCount++;
+		}
+	}
+
+	public void dataCoffe(){	
+		for (int i = 0; i < coffes.size(); i++) {
+			data[rowCount][0] = "Cafe";	
+			data[rowCount][1] = coffes.get(i).gettype();
+			data[rowCount][2] = coffes.get(i).getcant();
+			data[rowCount][3] = coffes.get(i).getprice();
+			data[rowCount][4] = coffes.get(i).getcant() * coffes.get(i).getprice();
+			rowCount++;
+		}
+	}
+
+	public void dataTopping(){	
+		for (int i = 0; i < toppings.size(); i++) {
+			data[rowCount][0] = "Topping";	
+			data[rowCount][1] = toppings.get(i).getname();
+			data[rowCount][2] = toppings.get(i).getcant();
+			data[rowCount][3] = toppings.get(i).getprice();
+			data[rowCount][4] = toppings.get(i).getcant() * toppings.get(i).getprice();
+			rowCount++;
+		}
+	}
+
+	public void dataCappuccino(){
+		data[rowCount][0] = name; 
+		data[rowCount][1] = presentation;
+		data[rowCount][2] = "1";
+		data[rowCount][3] = price;
+		data[rowCount][4] = price;
+	}
 }
