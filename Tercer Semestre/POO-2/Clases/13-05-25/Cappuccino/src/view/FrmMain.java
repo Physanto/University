@@ -1,6 +1,7 @@
 
 package view;
 
+import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
@@ -8,6 +9,7 @@ import model.Cappuccino;
 import model.Coffe;
 import model.Topping;
 import model.Water;
+import org.w3c.dom.css.RGBColor;
 
 /**
  *
@@ -368,7 +370,7 @@ public class FrmMain extends javax.swing.JFrame {
                 .addComponent(jLabel125, javax.swing.GroupLayout.PREFERRED_SIZE, 83, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(txtPriceCap, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 225, Short.MAX_VALUE)
                 .addComponent(btnMakeCappuccino)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pnlAddCappuLayout.createSequentialGroup()
@@ -405,7 +407,9 @@ public class FrmMain extends javax.swing.JFrame {
         jLabel20.setFont(new java.awt.Font("Adwaita Mono", 1, 15)); // NOI18N
         jLabel20.setText("Total");
 
+        lblTotal.setBackground(new java.awt.Color(60, 145, 225));
         lblTotal.setFont(new java.awt.Font("Adwaita Mono", 2, 18)); // NOI18N
+        lblTotal.setForeground(new java.awt.Color(0, 0, 0));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -420,23 +424,26 @@ public class FrmMain extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(pnlAddCappu, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAddTopping, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAddCoffe, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(pnlAddWater, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 55, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(jLabel19)
-                        .addGap(158, 158, 158))
+                        .addGap(144, 144, 144))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(jLabel20)
-                                .addGap(52, 52, 52)
-                                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 172, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 481, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(36, 36, 36))))
+                                .addGap(26, 26, 26)
+                                .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 503, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(24, 24, 24))))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(26, 26, 26)
+                .addComponent(pnlAddCappu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -452,19 +459,19 @@ public class FrmMain extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(pnlAddCoffe, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(34, 34, 34)
-                        .addComponent(pnlAddTopping, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(pnlAddCappu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(pnlAddTopping, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(83, 83, 83)
+                        .addGap(92, 92, 92)
                         .addComponent(jLabel19)
-                        .addGap(27, 27, 27)
+                        .addGap(18, 18, 18)
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(lblTotal, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(187, Short.MAX_VALUE))
+                .addGap(40, 40, 40)
+                .addComponent(pnlAddCappu, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(184, Short.MAX_VALUE))
         );
 
         pack();
@@ -478,6 +485,11 @@ public class FrmMain extends javax.swing.JFrame {
 		}
 		waters.add(new Water(txtCodeA.getText(), txtTypeA.getText(), Integer.parseInt(txtCantA.getText()), Double.parseDouble(txtPriceA.getText())));
 		JOptionPane.showMessageDialog(this, "Agua agregada con exito");
+
+		txtCodeA.setText("");
+		txtTypeA.setText("");
+		txtCantA.setText("");
+		txtPriceA.setText("");
     }//GEN-LAST:event_btnAddWaterActionPerformed
 
     private void btnAddCoffeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddCoffeActionPerformed
@@ -488,6 +500,12 @@ public class FrmMain extends javax.swing.JFrame {
 		}
 		coffes.add(new Coffe(txtCodeC.getText(), txtMarkC.getText(), txtTypeC.getText(), Integer.parseInt(txtCantC.getText()), Double.parseDouble(txtPriceC.getText())));
 		JOptionPane.showMessageDialog(this, "Cafe agregado con exito");
+
+		txtCodeC.setText("");
+		txtMarkC.setText("");
+		txtTypeC.setText("");
+		txtCantC.setText("");
+		txtPriceC.setText("");
     }//GEN-LAST:event_btnAddCoffeActionPerformed
 
     private void btnAddToppingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddToppingActionPerformed
@@ -497,26 +515,43 @@ public class FrmMain extends javax.swing.JFrame {
 		}	
 		topping = new Topping(txtNameT.getText(), Integer.parseInt(txtCantT.getText()), Double.parseDouble(txtPriceT.getText()));
 		JOptionPane.showMessageDialog(this, "Topping agregado con exito");
+
+
+		txtNameT.setText("");
+		txtCantT.setText("");
+		txtPriceT.setText("");
     }//GEN-LAST:event_btnAddToppingActionPerformed
 
     private void btnMakeCappuccinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMakeCappuccinoActionPerformed
-		if(txtCodeCap.getText().isEmpty() || txtNameCap.getText().isEmpty() || txtPresentationCap.getText().isEmpty() || txtPresentationCap.getText().isEmpty()){
+		if(txtCodeCap.getText().isEmpty() || txtNameCap.getText().isEmpty() || txtPresentationCap.getText().isEmpty() || txtPriceCap.getText().isEmpty()){
 			JOptionPane.showMessageDialog(this, "Llena todos los campos para poder agregar hacer el capuchino al capuchino");
+			return;
+		}
+		if(waters.isEmpty() || coffes.isEmpty()){
+			JOptionPane.showMessageDialog(this, "Para crear un capuchino debes agregar cafe y agua");
 			return;
 		}
 		Cappuccino cappuccino = new Cappuccino(txtCodeCap.getText(), txtNameCap.getText(), txtPresentationCap.getText(), 
 				Double.parseDouble(txtPriceCap.getText()), waters, coffes);
 		
-		cappuccino.addTopping(topping);
+		if(topping != null){
+			cappuccino.addTopping(topping);
+		}
 		JOptionPane.showMessageDialog(this, "Capuchino realizado con exito");
 		showDataTable(cappuccino);
 		lblTotal.setText("$ "+cappuccino.calculateprice());
+		
+		txtCodeCap.setText("");
+		txtNameCap.setText("");
+		txtPresentationCap.setText("");
+		txtPriceCap.setText("");
     }//GEN-LAST:event_btnMakeCappuccinoActionPerformed
 
 	private void showDataTable(Cappuccino cappuccino){
 		String[] columnNames = {"Nombre", "Tipo", "Cantidad", "Precio", "Subtotal"};
 		DefaultTableModel defaultTableModel = new DefaultTableModel(cappuccino.dataComplete(), columnNames);
 		tblCappuccino.setModel(defaultTableModel);
+		tblCappuccino.getTableHeader().setBackground(Color.ORANGE);
 	}
 
     public static void main(String args[]) {
