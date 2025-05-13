@@ -1,13 +1,16 @@
-
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
 package model;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author initmanfig
  */
-import java.util.ArrayList;
-
-public class Cappuccino {
+public class Cappuccino{
 
     private String code;
     private String name;
@@ -85,51 +88,17 @@ public class Cappuccino {
         this.toppings = topping;
     }
 
-    public double calculateprice(){
-        return price + getTotalwater() + getTotalcoffe() + getTotalToppings();
-    }	
+	public double calculateTotal(){
+		return price + calculatePrice(waters) + calculatePrice(coffes) + calculatePrice(toppings);
+	}
 
-    public double getTotalwater(){
-        double priceW = 0;
-        for(Water a : waters){
-            priceW += a.calcular();
-        }
-        return priceW;
-    }
-
-    public double getTotalcoffe(){
-        double priceC = 0;
-        for(Coffe c : coffes){
-            priceC += c.calcular();
-        }
-        return priceC;
-    }
-
-    public double getTotalToppings(){
-        double priceT = 0;
-        for(Topping t : toppings){
-            priceT += t.calcular();
-        }
-        return priceT;
-    }
-
-    public void showInfo(){
-        System.out.println(" Este es el capuchino " + code + " " + name + " " + price + " " + presentation +
-                " con estos componentes ");
-
-        for(Water a : waters){
-            System.out.println(a.toString());
-        }
-
-        for(Coffe c : coffes){
-            System.out.println(c.toString());
-        }
-        for(Topping t : toppings){
-            System.out.println(t.toString());
-        }
-
-        System.out.println(" su precio total es de " + calculateprice());
-    }
+	public double calculatePrice(ArrayList<? extends Calculate> data){
+		double priceT = 0;
+		for(Calculate c : data){
+			priceT += c.calculatePrice();
+		}
+		return priceT;
+	}
 
     public boolean addTopping(Topping topping){
         return toppings.add(topping);
