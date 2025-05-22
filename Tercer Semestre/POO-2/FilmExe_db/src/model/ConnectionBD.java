@@ -4,9 +4,9 @@ import java.sql.*;
 
 public class ConnectionBD {
 
-	static String bd = "filmExe_bd"; 
+	static String bd = "filmExe_db"; 
 	static String user = "root";
-	static String password = "root";
+	static String password = "12345";
 	static String url = "jdbc:mysql://localhost:3306/" + bd + "?useUnicode=true";		
 	Connection connection = null;
 
@@ -44,10 +44,5 @@ public class ConnectionBD {
 			}
 			connection = null;
 		}
-	}
-
-	public static void main(String args[]) {
-		ConnectionBD connection = new ConnectionBD();
-		connection.getConnection();
 	}
 }
