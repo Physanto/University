@@ -8,14 +8,20 @@ import java.sql.Connection;
 
 public class HelperDB {
 
-	public boolean executeDML(String sql, Object object) { 
-		
+	public boolean executeDML(String sql, Person person) { 
+	
 		boolean check = false;	
+
 		try {Connection connection = new ConnectionBD().getConnection();
 			PreparedStatement ps = connection.prepareStatement(sql);
-			for (int i = 1; i < object.length; i++) {
-				ps.setObject(i, object.getName());
-			}
+			
+			ps.setInt(1, person.getId());
+			ps.setObject(2, person.getCc());
+			ps.setObject(3, person.getCc());
+			ps.setObject(2, person.getCc());
+			ps.setObject(2, person.getCc());
+			ps.setObject(2, person.getCc());
+
 			int valid = ps.executeUpdate();
 			
 			if (valid > 0) check = true;
